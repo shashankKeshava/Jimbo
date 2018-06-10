@@ -12,10 +12,9 @@ const styles=theme=>({
 
 class InputField extends Component{
     render(){
-        const { classes}=this.props;
-        const { type,multiline=false } = this.props.data;
+        const { data:{type,multiline=false,placeholder},classes } = this.props;
         return(
-            <TextField className={classes.textField} type={type} multiline={multiline} row={`${multiline?"1":"4"}`}/>
+            <TextField className={classes.textField} type={type} multiline={multiline} row={`${multiline?"1":"4"}`} placeholder={placeholder}/>
         )
     }
 }
