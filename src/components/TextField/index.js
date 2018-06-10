@@ -11,10 +11,15 @@ const styles=theme=>({
 
 
 class InputField extends Component{
+
+    handleChange=(event)=>{
+        console.log(event.target.value,this.props.data.type)
+    }
     render(){
         const { data:{type,multiline=false,placeholder},classes } = this.props;
         return(
-            <TextField className={classes.textField} type={type} multiline={multiline} row={`${multiline?"1":"4"}`} placeholder={placeholder}/>
+            <TextField className={classes.textField} type={type} multiline={multiline}
+            row={`${multiline?"1":"4"}`} placeholder={placeholder} onChange={this.handleChange}/>
         )
     }
 }
