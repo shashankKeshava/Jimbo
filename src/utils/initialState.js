@@ -1,14 +1,21 @@
 export default {
-    form: {
-        name: {
+    form: [{
             type: 'text',
+            id: 'text',
+            label:'Name'
         },
-        email: {
-            type: 'email'
+        {
+            type: 'email',
+            id: 'email',
+            label:'Email'
         },
-        textarea: {
+        {
             type: 'textarea',
-            multiline:true
+            id: 'textarea',
+            label:'Message',
+            multiline: true
         }
-    }
+    ],
+    disable:false,
+    data:{}
 }

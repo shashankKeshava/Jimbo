@@ -1,0 +1,30 @@
+.inputType{
+    display:flex;
+    flex-direction:row;
+    padding:15px;
+}
+
+label {
+    text-align: right;
+    clear: right;
+    float: left;
+    padding-right: 50px;
+    width: 50px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1.2em;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+label,TextField{
+    float:left;
+}
+
+TextField{
+    width: 169px
+}
+
+@media only screen and (max-width: 600px) {
+    .inputType {
+        flex-direction:column;
+    }
+}
