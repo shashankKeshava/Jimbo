@@ -1,6 +1,10 @@
 import React,{Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
+import {connect} from 'react-redux';
+
+import {updateFormData} from '../../actions/'
+import {UPDATE_FORM_DATA} from '../../utils/actionTypes'
 
 const styles=theme=>({
     textField:{
@@ -13,6 +17,8 @@ const styles=theme=>({
 class InputField extends Component{
 
     handleChange=(event)=>{
+        const {dispatch}=this.props;
+        dispatch(updateFormData({value:event.target.value,type:this.props.data.type}))
         console.log(event.target.value,this.props.data.type)
     }
     render(){
@@ -24,4 +30,4 @@ class InputField extends Component{
     }
 }
 
-export default withStyles(styles)(InputField);
+export default connect()(withStyles(styles)(InputField));
