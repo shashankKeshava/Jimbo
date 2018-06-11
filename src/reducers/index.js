@@ -16,7 +16,7 @@ const reducer = (prevState = initialState, action) => {
           type,
           value
         } = action.payload
-        const newState = setIn(prevState, ['data', type], value)
+        const newState = setIn(prevState, ['data', type], value);
         return newState;
       }
     default:
