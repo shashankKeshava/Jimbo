@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import {connect} from 'react-redux';
 
 import {updateFormData} from '../../actions/'
-import {UPDATE_FORM_DATA} from '../../utils/actionTypes'
 
 const styles=theme=>({
     textField:{
@@ -17,17 +16,26 @@ const styles=theme=>({
 class InputField extends Component{
 
     handleChange=(event)=>{
-        const {dispatch}=this.props;
-        dispatch(updateFormData({value:event.target.value,type:this.props.data.type}))
+        this.props.updateFormData(event.target.value,this.props.data.type);
         console.log(event.target.value,this.props.data.type)
     }
     render(){
-        const { data:{type,multiline=false,placeholder},classes } = this.props;
+        const { data:{type,multiline=false,placeholder},classes,disable } = this.props;
         return(
             <TextField className={classes.textField} type={type} multiline={multiline}
-            row={`${multiline?"1":"4"}`} placeholder={placeholder} onChange={this.handleChange}/>
+            row={`${multiline?"1":"4"}`} placeholder={placeholder} onChange={this.handleChange} disabled={disable}/>
         )
     }
 }
 
-export default connect()(withStyles(styles)(InputField));
+const mapToStateToProps = state => {
+    return state;
+  }
+
+  const mapDispatchToProps = dispatch => {
+    return {
+      updateFormData: (value,type) => dispatch(updateFormData(value,type))
+    }
+  }
+
+export default connect(mapToStateToProps,mapDispatchToProps)(withStyles(styles)(InputField));

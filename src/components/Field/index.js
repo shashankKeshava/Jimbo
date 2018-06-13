@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+
 import TextField from '../TextField';
 import './index.css'
 
@@ -15,6 +16,5 @@ class Field extends Component{
         )
     }
 }
-
 
 export default Field;

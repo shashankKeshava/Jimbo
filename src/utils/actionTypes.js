@@ -1,1 +1,2 @@
 export const UPDATE_FORM_DATA = "UPDATE_FORM_DATA";
+export const SEND_FORM_DATA = "SEND_FORM_DATA";

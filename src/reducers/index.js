@@ -1,10 +1,12 @@
 import initialState from '../utils/initialState'
 import {
-  setIn
+  setIn,
+  getIn
 } from 'timm'
 
 import {
-  UPDATE_FORM_DATA
+  UPDATE_FORM_DATA,
+  SEND_FORM_DATA
 } from '../utils/actionTypes'
 
 
@@ -17,6 +19,12 @@ const reducer = (prevState = initialState, action) => {
           value
         } = action.payload
         const newState = setIn(prevState, ['data', type], value);
+        return newState;
+      }
+    case SEND_FORM_DATA:
+      {
+        const isDisable = getIn(prevState, ['disable'])
+        const newState = setIn(prevState, ['disable'], !isDisable)
         return newState;
       }
     default:

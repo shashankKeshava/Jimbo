@@ -8,6 +8,8 @@
     justify-content: center;
     background: white;
     box-shadow: 1px 1px #ccc6c6;
+    flex-direction: column;
+    align-items: center;
 
 }
 

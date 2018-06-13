@@ -3,12 +3,17 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
 import Field from '../../components/Field'
-import Button from '@material-ui/core/Button';
-import {updateFormData} from '../../actions'
+import {updateFormData, sendFormData} from '../../actions'
 
 import './App.css';
 
 class App extends React.Component {
+
+  handleSubmit = () => {
+    this
+      .props
+      .sendFormData()
+  }
   render() {
     return (
       <div className="App">
@@ -27,10 +32,10 @@ class App extends React.Component {
               label = {
                 field.label
               } />)}
-            <button>
-              Submit
-            </button>
           </form>
+          <button onClick={() => this.handleSubmit()}>
+            Submit
+          </button>
         </div>
       </div>
     );
@@ -41,9 +46,11 @@ const mapToStateToProps = state => {
   return state;
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  updateFormData
-}, dispatch);
+const mapDispatchToProps = dispatch => {
+  return {
+    sendFormData: () => dispatch(sendFormData())
+  }
+}
 
 const appVisibility = connect(mapToStateToProps, mapDispatchToProps)(App)
 
