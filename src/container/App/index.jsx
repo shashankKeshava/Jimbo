@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 import FormField from '../../components/FormField'
 import Loader from '../../components/Loader'
+import SnackBar from '../../components/SnackBar'
 import {sendFormData} from '../../actions'
 
 import './App.css';
@@ -39,6 +40,7 @@ class App extends React.Component {
             Submit
           </button>
         </div>
+        {disable &&< SnackBar isSnackBarOpen={disable}/>}
       </div>
     );
   }
