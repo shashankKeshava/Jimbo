@@ -2,6 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux'
 
 import FormField from '../../components/FormField'
+import Loader from '../../components/Loader'
 import {sendFormData} from '../../actions'
 
 import './App.css';
@@ -14,15 +15,17 @@ class App extends React.Component {
       .sendFormData()
   }
   render() {
+    const {disable} = this.props;
     return (
       <div className="App">
         <div className="App-header">{"Jimdo Form Trial Project"}</div>
         <div className="App-body">
+        {disable &&< Loader />}
           <form>
             {this
               .props
               .form
-              .map((field, index) =><FormField key = {
+              .map((field, index) =>< FormField key = {
                 index
               }
               type = {
