@@ -4,9 +4,15 @@ import {connect} from 'react-redux'
 import FormField from '../../components/FormField'
 import Loader from '../../components/Loader'
 import SnackBar from '../../components/SnackBar'
-import {sendFormData} from '../../actions'
+import {sendFormData, formSubmitSuccess} from '../../actions'
 
 import './App.css';
+
+const mockFetchCall = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Success')
+  }, 10000);
+})
 
 class App extends React.Component {
 
@@ -14,14 +20,20 @@ class App extends React.Component {
     this
       .props
       .sendFormData()
+    mockFetchCall.then(() => {
+      console.log('Success');
+      this
+        .props
+        .formSubmitSuccess()
+    })
   }
   render() {
-    const {disable} = this.props;
+    const {disable, apiSuccess} = this.props;
     return (
       <div className="App">
         <div className="App-header">{"Jimdo Form Trial Project"}</div>
         <div className="App-body">
-        {disable &&< Loader />}
+          {disable &&< Loader />}
           <form>
             {this
               .props
@@ -40,7 +52,9 @@ class App extends React.Component {
             Submit
           </button>
         </div>
-        {disable &&< SnackBar isSnackBarOpen={disable}/>}
+        {apiSuccess &&< SnackBar isSnackBarOpen = {
+          apiSuccess
+        } />}
       </div>
     );
   }
@@ -52,7 +66,8 @@ const mapToStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendFormData: () => dispatch(sendFormData())
+    sendFormData: () => dispatch(sendFormData()),
+    formSubmitSuccess: () => dispatch(formSubmitSuccess())
   }
 }
 

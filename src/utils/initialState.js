@@ -19,6 +19,7 @@ export default {
             multiline: true
         }
     ],
+    apiSuccess:false,
     disable:false,
     data:{}
 }
