@@ -1,9 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
 
-import Field from '../../components/Field'
-import {updateFormData, sendFormData} from '../../actions'
+import FormField from '../../components/FormField'
+import {sendFormData} from '../../actions'
 
 import './App.css';
 
@@ -23,7 +22,7 @@ class App extends React.Component {
             {this
               .props
               .form
-              .map((field, index) =>< Field key = {
+              .map((field, index) =><FormField key = {
                 index
               }
               type = {
