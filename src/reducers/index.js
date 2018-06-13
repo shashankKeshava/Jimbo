@@ -1,7 +1,6 @@
 import initialState from '../utils/initialState'
 import {
   setIn,
-  getIn
 } from 'timm'
 
 import {
@@ -25,9 +24,9 @@ const reducer = (prevState = initialState, action) => {
     case SEND_FORM_DATA:
       {
         const {
-          disable: isDisable
+          disable: isDisable,
         } = prevState
-        const newState = setIn(prevState, ['disable'], !isDisable)
+        const newState = setIn(setIn(prevState, ['apiSuccess'], false), ['disable'], !isDisable)
         return newState;
       }
     case SUBMIT_SUCCESS:

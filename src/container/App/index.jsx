@@ -8,25 +8,24 @@ import {sendFormData, formSubmitSuccess} from '../../actions'
 
 import './App.css';
 
-const mockFetchCall = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('Success')
-  }, 10000);
-})
-
 class App extends React.Component {
+
+  mockFetchCall = () => {
+    setTimeout(() => {
+      this
+        .props
+        .formSubmitSuccess()
+    }, 10000);
+  }
 
   handleSubmit = () => {
     this
       .props
       .sendFormData()
-    mockFetchCall.then(() => {
-      console.log('Success');
-      this
-        .props
-        .formSubmitSuccess()
-    })
+    // Mock Fetch Call
+    this.mockFetchCall();
   }
+
   render() {
     const {disable, apiSuccess} = this.props;
     return (
