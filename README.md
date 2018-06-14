@@ -16,11 +16,7 @@ Please add a test that checks if the form submits its data when the submit butto
 You are totally free in deciding how you build this. If anything is unclear to you, just make an assumption and proceed with what you think makes sense.
 
 ## Candidate
-Shashank K 
-
-Email: <keshavashashank@gmail.com> 
-
-Also this is my [resume](http://bit.ly/shankCV)
+Shashank K,this is my [resume](http://bit.ly/shankCV) and my email is  <keshavashashank@gmail.com> 
 
 #### Setup
 `yarn`
