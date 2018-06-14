@@ -47,7 +47,7 @@ class App extends React.Component {
                             />
                         ))}
                     </form>
-                    <button onClick={() => this.handleSubmit()}>Submit</button>
+                    <button id="submit_button" className="submit_button" onClick={() => this.handleSubmit()}>Submit</button>
                 </div>
                 {apiSuccess && <SnackBar isSnackBarOpen={apiSuccess} />}
             </div>
